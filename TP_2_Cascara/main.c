@@ -8,11 +8,7 @@ int main() {
     char seguir='s';
     int opcion=0;
     ePersona listaPersonas[20];
-    int i; //Crear funcion para inicializar listaPersonas.
-    for(i=0; i<TAM; i++)
-    {
-        listaPersonas[i].estado = 0;
-    }
+    inicializarEstados(listaPersonas, TAM);
 
     while(seguir=='s') {
         system("cls");
@@ -38,8 +34,13 @@ int main() {
                 system("pause");
                 break;
             case 3:
+                ordenarPersonas(listaPersonas, TAM);
+                mostrarPersonas(listaPersonas, TAM);
+                system("pause");
                 break;
             case 4:
+                graficoPersonas(listaPersonas, TAM);
+                system("pause");
                 break;
             case 5:
                 seguir = 'n';

@@ -11,24 +11,58 @@ typedef struct {
     int estado;
 }ePersona;
 
-/**
- * Obtiene el primer indice libre del array.
- * @param lista el array se pasa como parametro.
- * @return el primer indice disponible
+/** \brief Alta de persona, ingreso de nombre, edad y dni.
+ *
+ * \param Array de personas.
+ * \param Entero, tamaño del array.
+ * \return Void.
+ *
  */
-int obtenerEspacioLibre(ePersona lista[]);
-
-/**
- * Obtiene el indice que coincide con el dni pasado por parametro.
- * @param lista el array se pasa como parametro.
- * @param dni el dni a ser buscado en el array.
- * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
- */
-int buscarPorDni(ePersona lista[], int dni);
-
 void agregarPersona(ePersona[], int);
 
+/** \brief Baja de persona preguntando por el dni, cambiando el estado de 1 a 0.
+ *
+ * \param Array de personas.
+ * \param Entero, tamaño del array.
+ * \return Void.
+ *
+ */
 void borrarPersona(ePersona[], int);
 
+/** \brief Ordena la lista de personas por nombre de la A la Z.
+ *
+ * \param Array de personas.
+ * \param Entero, tamaño del array.
+ * \return Void.
+ *
+ */
+void ordenarPersonas(ePersona[], int);
+
+/** \brief Muestra la lista de personas en pantalla.
+ *
+ * \param Array de personas.
+ * \param Entero, tamaño del array.
+ * \return Void.
+ *
+ */
+void mostrarPersonas(ePersona[], int);
+
+/** \brief Inicializa los estados del array en 0.
+ *
+ * \param Array de personas.
+ * \param Entero, tamaño del array.
+ * \return Void.
+ *
+ */
+void inicializarEstados(ePersona[], int);
+
+/** \brief Comprueba cuantas personas hay en cada rango de edad y grafica con un "*" a cada persona.
+ *
+ * \param Array de personas.
+ * \param Entero, tamaño del array.
+ * \return Void.
+ *
+ */
+void graficoPersonas(ePersona[], int);
 
 #endif // FUNCIONES_H_INCLUDED

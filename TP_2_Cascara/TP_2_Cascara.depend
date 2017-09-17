@@ -13,3 +13,18 @@
 	<stdlib.h>
 	"funciones.h"
 
+1505677974 source:c:\users\leonel\desktop\utn\programación 1\tps\tp_2_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1505678578 c:\users\leonel\desktop\utn\programación 1\tps\tp_2_cascara\funciones.h
+	<stdio.h>
+	<stdlib.h>
+
+1505677974 source:c:\users\leonel\desktop\utn\programación 1\tps\tp_2_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
