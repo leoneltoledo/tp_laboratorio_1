@@ -9,10 +9,10 @@
 int main()
 {
     eMovie movies[TAM];
+    char nombre[15];
     char seguir = 's';
     char guardar = 's';
     int opcion = 0;
-    int i;
 
     inicializarEstados(movies);
 
@@ -48,21 +48,18 @@ int main()
                 system("cls");
                 borrarPelicula(movies);
                 break;
-            case 6:
-                system("cls");
-                printf("Titulo\tGenero\tPuntaje\n");
-                for(i=0;i<TAM;i++) {
-                    if(movies[i].estado==1) {
-                        printf("%s\t%s\t%d\n", movies[i].titulo, movies[i].genero, movies[i].puntaje);
-                    }
-                }
-                system("pause");
-                break;
             case 3:
                 system("cls");
                 modificarPelicula(movies);
                 break;
             case 4:
+                system("cls");
+                printf("Ingrese el nombre del archivo: \n");
+                fflush(stdin);
+                gets(nombre);
+
+                generarPagina(movies, nombre);
+                system("pause");
                 break;
             case 5:
                 system("cls");

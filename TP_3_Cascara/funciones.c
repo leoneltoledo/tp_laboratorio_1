@@ -53,8 +53,6 @@ int guardarArchivo(eMovie pelicula[]) {
     int i, aux;
     FILE *f;
 
-    //Necesito que solo se guarden las estructuras con el estado en 1.
-
     for(i=0;i<TAM;i++) {
         if(pelicula[i].estado==0) {
             aux = i;
@@ -122,6 +120,7 @@ int borrarPelicula(eMovie pelicula[]) {
 
     for(i=0;i<TAM;i++) {
         if(strcmp(titulo, pelicula[i].titulo) == 0) {
+            printf("Titulo\t\tGenero\t\tPuntaje\n");
             printf("%s\t%s\t%d\n", pelicula[i].titulo, pelicula[i].genero, pelicula[i].puntaje);
             printf("Desea eliminar? (s/n)\n");
             scanf(" %c", &seguir);
@@ -199,24 +198,31 @@ void modificarPelicula(eMovie pelicula[]) {
     }
 }
 
-/*void generarPagina(eMovie lista[], char nombre[]) {
+void generarPagina(eMovie lista[], char nombre[]) {
     FILE *archivo;
-    char buffer[1080];
+    int i;
 
-    strcat(buffer,"");
-    strcat(buffer,variable);
+    strcat(nombre,".html");
 
-    archivo = fopen("index.html","w");
+    archivo = fopen(nombre,"w");
 
     if(archivo==NULL) {
         printf("No se pudo abrir el archivo\n");
     }
     else {
-        fprintf(archivo,buffer);
+        fprintf(archivo,"<!DOCTYPE html><!-- Template by Quackit.com --><html lang='en'><head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1'><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><title>Lista peliculas</title><!-- Bootstrap Core CSS --><link href='css/bootstrap.min.css' rel='stylesheet'><!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles --><link href='css/custom.css' rel='stylesheet'><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]><script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script><script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script><![endif]--></head><body><div class='container'><div class='row'>");
+
+        for(i=0;i<TAM;i++) {
+            if(lista[i].estado==1) {
+                fprintf(archivo, "<!-- Repetir esto para cada pelicula --><article class='col-md-4 article-intro'><a href='#'><img class='img-responsive img-rounded' src='%s' alt=''></a><h3><a href='#'>%s</a></h3><ul><li>Genero: %s</li><li>Puntaje: %d</li><li>Duracion: %d</li></ul><p>%s</p></article><!-- Repetir esto para cada pelicula -->", lista[i].linkImagen, lista[i].titulo, lista[i].genero, lista[i].puntaje, lista[i].duracion, lista[i].descripcion);
+            }
+        }
+        fprintf(archivo, "</div><!-- /.row --></div><!-- /.container --><!-- jQuery --><script src='js/jquery-1.11.3.min.js'></script><!-- Bootstrap Core JavaScript --><script src='js/bootstrap.min.js'></script><!-- IE10 viewport bug workaround --><script src='js/ie10-viewport-bug-workaround.js'></script><!-- Placeholder Images --><script src='js/holder.min.js'></script></body></html>");
+
         printf("Pagina generada con exito\n");
     }
 
     fclose(archivo);
-}*/
+}
 
 #endif // FUNCIONES_C
