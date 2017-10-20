@@ -201,6 +201,7 @@ void modificarPelicula(eMovie pelicula[]) {
 void generarPagina(eMovie lista[], char nombre[]) {
     FILE *archivo;
     int i;
+    int contador = 0;
 
     strcat(nombre,".html");
 
@@ -215,7 +216,13 @@ void generarPagina(eMovie lista[], char nombre[]) {
         for(i=0;i<TAM;i++) {
             if(lista[i].estado==1) {
                 fprintf(archivo, "<!-- Repetir esto para cada pelicula --><article class='col-md-4 article-intro'><a href='#'><img class='img-responsive img-rounded' src='%s' alt=''></a><h3><a href='#'>%s</a></h3><ul><li>Genero: %s</li><li>Puntaje: %d</li><li>Duracion: %d</li></ul><p>%s</p></article><!-- Repetir esto para cada pelicula -->", lista[i].linkImagen, lista[i].titulo, lista[i].genero, lista[i].puntaje, lista[i].duracion, lista[i].descripcion);
+                contador++;
             }
+            if(contador==3) {
+                fprintf(archivo, "</div><!-- /.row --><div class='row'>");
+                contador = 0;
+            }
+
         }
         fprintf(archivo, "</div><!-- /.row --></div><!-- /.container --><!-- jQuery --><script src='js/jquery-1.11.3.min.js'></script><!-- Bootstrap Core JavaScript --><script src='js/bootstrap.min.js'></script><!-- IE10 viewport bug workaround --><script src='js/ie10-viewport-bug-workaround.js'></script><!-- Placeholder Images --><script src='js/holder.min.js'></script></body></html>");
 
