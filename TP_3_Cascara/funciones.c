@@ -121,7 +121,7 @@ int borrarPelicula(eMovie pelicula[]) {
     for(i=0;i<TAM;i++) {
         if(strcmp(titulo, pelicula[i].titulo) == 0) {
             printf("Titulo\t\tGenero\t\tPuntaje\n");
-            printf("%s\t%s\t%d\n", pelicula[i].titulo, pelicula[i].genero, pelicula[i].puntaje);
+            printf("%10s\t%10s\t%d\n", pelicula[i].titulo, pelicula[i].genero, pelicula[i].puntaje);
             printf("Desea eliminar? (s/n)\n");
             scanf(" %c", &seguir);
             if(seguir=='s') {
@@ -130,6 +130,7 @@ int borrarPelicula(eMovie pelicula[]) {
             }
             else {
                 printf("No se elimino la pelicula\n");
+                system("pause");
                 return 0;
             }
         }
